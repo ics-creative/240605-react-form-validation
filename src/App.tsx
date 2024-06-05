@@ -25,7 +25,7 @@ function App() {
 					</div>
 				</div>
 			</section>
-			<section id="#section-1" className="section">
+			<section id="#section-2" className="section">
 				<div className="container is-max-desktop">
 					<div className="content">
 						<h2>React Hook Formを使用したフォーム</h2>
@@ -39,7 +39,7 @@ function App() {
 					</div>
 				</div>
 			</section>
-			<section id="#section-2" className="section">
+			<section id="#section-3" className="section">
 				<div className="container is-max-desktop">
 					<div className="content">
 						<h2>Zodを使用したフォーム</h2>
@@ -53,7 +53,7 @@ function App() {
 					</div>
 				</div>
 			</section>
-			<section id="#section-3" className="section">
+			<section id="#section-4" className="section">
 				<div className="container is-max-desktop">
 					<div className="content">
 						<h2>Zodを使用した相関チェック</h2>
