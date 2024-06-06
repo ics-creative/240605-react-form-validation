@@ -1,7 +1,7 @@
 import { type ChangeEvent, type FormEvent, useState } from "react";
 const validate = (value: string) => {
   if (value.length === 0) {
-    return "テキストを入力して下さい";
+    return "テキストを入力してください";
   }
   return "";
 };

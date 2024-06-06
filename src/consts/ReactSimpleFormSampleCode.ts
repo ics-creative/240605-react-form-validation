@@ -2,7 +2,7 @@ export const ReactSimpleFormSampleCode = `
 // バリデーション関数
 const validate = (value: string) => {
   if (value.length === 0) {
-    return "テキストを入力して下さい";
+    return "テキストを入力してください";
   }
   return "";
 };
