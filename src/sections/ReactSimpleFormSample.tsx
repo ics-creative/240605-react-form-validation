@@ -16,8 +16,8 @@ export const ReactSimpleFormSample = () => {
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
   };
-  const onBlur = () => {
-    const result = validate(value);
+  const onBlur = (e: ChangeEvent<HTMLInputElement>) => {
+    const result = validate(e.target.value);
     setError(result);
   };
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
