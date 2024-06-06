@@ -7,8 +7,28 @@ import { CorrelationCheckSample } from "./sections/CorrelationCheckSample.tsx";
 import { ReactHookFormSample } from "./sections/ReactHookFormSample.tsx";
 import { ReactSimpleFormSample } from "./sections/ReactSimpleFormSample.tsx";
 import { SchemaFormSample } from "./sections/SchemaFormSample.tsx";
+import { codeToHtml } from "shiki";
+import { useEffect, useState } from "react";
+
+const samples = [
+  ReactSimpleFormSampleCode,
+  ReactHookFormSampleCode,
+  SchemaFormSampleCode,
+  CorrelationCheckSampleCode,
+];
 
 function App() {
+  const [value, setValue] = useState<string[]>([]);
+  useEffect(() => {
+    Promise.all(
+      samples.map((sample) =>
+        codeToHtml(sample, {
+          lang: "tsx",
+          theme: "github-dark",
+        }),
+      ),
+    ).then((result) => setValue(result));
+  }, []);
   return (
     <>
       <section id="section-1" className="section">
@@ -19,7 +39,9 @@ function App() {
             <details>
               <summary>コードを見る</summary>
               <div className="content">
-                <pre>{ReactSimpleFormSampleCode}</pre>
+                <pre>
+                  <code dangerouslySetInnerHTML={{ __html: value[0] }}></code>
+                </pre>
               </div>
             </details>
           </div>
@@ -33,7 +55,7 @@ function App() {
             <details>
               <summary>コードを見る</summary>
               <div className="">
-                <pre>{ReactHookFormSampleCode}</pre>
+                <pre dangerouslySetInnerHTML={{ __html: value[1] }}></pre>
               </div>
             </details>
           </div>
@@ -47,7 +69,7 @@ function App() {
             <details>
               <summary>コードを見る</summary>
               <div className="">
-                <pre>{SchemaFormSampleCode}</pre>
+                <pre dangerouslySetInnerHTML={{ __html: value[2] }}></pre>
               </div>
             </details>
           </div>
@@ -61,7 +83,7 @@ function App() {
             <details>
               <summary>コードを見る</summary>
               <div className="">
-                <pre>{CorrelationCheckSampleCode}</pre>
+                <pre dangerouslySetInnerHTML={{ __html: value[3] }}></pre>
               </div>
             </details>
           </div>
