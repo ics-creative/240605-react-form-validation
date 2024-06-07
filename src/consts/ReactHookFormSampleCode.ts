@@ -2,6 +2,7 @@ export const ReactHookFormSampleCode = `
 // フォームの型定義
 type FormData = {
   nickname: string;
+  age: number;
 };
 
 export const ReactHookFormSample = () => {
