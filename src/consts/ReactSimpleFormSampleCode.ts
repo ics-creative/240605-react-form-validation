@@ -32,6 +32,7 @@ export const SimpleForm = () => {
       setError(result);
       return;
     }
+    // フォームの送信処理（この処理は仮です。用途に応じてカスタマイズしてください）
     window.alert(value);
   };
   

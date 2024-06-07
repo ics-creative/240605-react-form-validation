@@ -31,45 +31,49 @@ export const CorrelationCheckSample = () => {
     resolver: zodResolver(schema),
   });
   const onSubmit: SubmitHandler<Inputs> = (data) => {
-    console.log(data);
+    // フォームの送信処理
   };
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div>
-        <label>タイトル</label>
-        <input type="text" {...register("title")} />
+        <label>
+          タイトル
+          <input type="text" {...register("title")} />
+        </label>
         {errors.title && (<p>{errors.title.message}</p>)}
       </div>
       <div>
-        <label>開始日</label>
-        <input
-          type="date"
-          {...register("date.startDate")}
-          // 🌟開始日の入力時にも相関チェックを行う
-          onBlur={() => {
-            if (getValues("date.endDate") !== "") {
-              trigger("date.endDate");
-            }
-          }}   
-        />
+        <label>
+          開始日
+          <input
+            type="date"
+            {...register("date.startDate")}
+            // 🌟開始日の入力時にも相関チェックを行う
+            onBlur={() => {
+              if (getValues("date.endDate") !== "") {
+                trigger("date.endDate");
+              }
+            }}
+          />
+        </label>
         {errors.date?.startDate && (
           <p>{errors.date.startDate.message}</p>
         )}
       </div>
       <div>
-        <label>終了日</label>
-        <input
-          type="date"
-          {...register("date.endDate")}
-        />
+        <label>
+          終了日
+          <input
+            type="date"
+            {...register("date.endDate")}
+          />
+        </label>
         {errors.date?.endDate && (
           <p>{errors.date.endDate.message}</p>
         )}
       </div>
       <div>
-        <button type="submit">
-          submit
-        </button>
+        <button type="submit">submit</button>
       </div>
     </form>
   );
