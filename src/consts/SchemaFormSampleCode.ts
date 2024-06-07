@@ -5,9 +5,9 @@ const schema = z.object({
   nickname: z.string().min(1, { message: "名前を入力してください" }),
   /** 年齢 */
   age: z
-    .number({ message: "半角数字で入力してください" })
-    .min(1, { message: "年齢を入力してください" })
-    .gte(12, { message: "12歳以上で入力してください" }),
+    .number({ message: "年齢を半角数字で入力してください" })
+    .int({ message: "年齢を整数で入力してください" })
+    .gte(12, { message: "年齢を12歳以上で入力してください" }),
   /** メールアドレス */
   email: z.union([
     z
