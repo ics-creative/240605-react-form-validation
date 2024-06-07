@@ -32,8 +32,8 @@ export const ReactSimpleFormSample = () => {
   return (
     <form className="box" onSubmit={onSubmit}>
       <div className="field">
+        <label className="label">名前</label>
         <div className="control">
-          <label className="label">名前</label>
           <input
             className="input"
             type="text"
